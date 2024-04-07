@@ -1,0 +1,17 @@
+{
+  "@context": {
+    "as": "https://www.w3.org/ns/activitystreams#",
+    "Hashtag": {
+      "@id": "as:Hashtag",
+      "@type": "@id"
+    },
+    "manuallyApprovesFollowers": {
+      "@id": "as:manuallyApprovesFollowers",
+      "@type": "xsd:boolean"
+    },
+    "movedTo": {
+      "@id": "as:movedTo",
+      "@type": "@id"
+    }
+  }
+}
