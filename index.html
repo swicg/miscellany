@@ -1,72 +1,344 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>ActivityPub Miscellaneous Terms</title>
-    <script
-      src="https://www.w3.org/Tools/respec/respec-w3c"
-      class="remove"
-      defer
-    ></script>
-    <script class="remove">
-      // All config options at https://respec.org/docs/
-      var respecConfig = {
-        specStatus: "CG-DRAFT",
-        editors: [{ name: "Evan Prodromou", url: "https://evanp.me/" }],
-        github: "swicg/miscellany",
-        shortName: "apmisc",
-        xref: "web-platform",
-        group: "socialcg",
-      };
-    </script>
-  </head>
-  <body>
-    <section id="abstract">
-      <p>This is required.</p>
-    </section>
-    <section id="sotd">
-      <p>This is required.</p>
-    </section>
-    <section class="informative">
-      <h2>Introduction</h2>
-      <p>Some informative introductory text.</p>
-      <aside class="note" title="A useful note">
-        <p>I'm a note!</p>
-      </aside>
-    </section>
-    <section>
-      <h2>A section</h2>
-      <aside class="example">
-        <p>This is an example.</p>
-        <pre class="js">
-        // Automatic syntax highlighting
-        function someJavaScript(){}
+
+<head>
+  <meta charset="utf-8" />
+  <title>ActivityPub Miscellaneous Terms</title>
+  <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
+  <script class="remove">
+    // All config options at https://respec.org/docs/
+    var respecConfig = {
+      specStatus: "CG-DRAFT",
+      editors: [{ name: "Evan Prodromou", url: "https://evanp.me/" }],
+      github: "swicg/miscellany",
+      shortName: "apmisc",
+      xref: ["web-platform", "activitystreams-vocabulary", "activitystreams-core", "activitypub"],
+      group: "socialcg",
+    };
+  </script>
+  <style>
+    table td,
+    table td * {
+      vertical-align: top;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="abstract">
+    <p>
+      This specification documents miscellaneous terms used for ActivityPub
+      and defined in the Activity Streams 2.0 namespace.
+    </p>
+  </section>
+  <section id="sotd">
+    <p>This is required.</p>
+  </section>
+  <section class="informative">
+    <h2>Introduction</h2>
+    <p>
+      The first software packages that implemented the [[activitypub]] protocol
+      federation protocol began to appear in 2018. <a href="https://joinmastodon.org/">Mastodon</a>, a federated
+      microblogging service, had previously implemented the <a href="https://en.wikipedia.org/wiki/OStatus">OStatus</a>
+      protocol. It was ported over to using ActivityPub.
+    </p>
+    <p>
+      As it was, the Mastodon team included a number of terms that the software needed to implement Mastodon features
+      not defined in basic ActivityPub. Some terms were proposed for inclusion in the ActivityPub specification, but weren't included because of time constraints.
+    </p>
+    <p>
+      In the absence of a clear extensions process, those terms were not given their own namespace or context document, but instead were defined in the default namespace for Activity Streams 2.0.
+      They also were not given their own [[JSON-LD]] context document, instead defined in the <code>@context</code>
+      property of each ActivityPub object.
+    </p>
+    <p>
+      The terms have been widely adopted by other ActivityPub implementations.
+      Newer Mastodon-specific extensions have been defined in Mastodon's own namespace. The first few terms, though,
+      remain undocumented in a formal specification.
+    </p>
+    <p>
+      The <a href="https://www.w3.org/community/socialcg/">SocialCG</a> at the W3C is responsible for managing resources
+      like the ActivityPub and Activity Streams 2.0 errata and context document. Its proposed <a
+        href="https://swicg.github.io/extensions-policy/">Process for Including Extensions in Activity Streams 2.0</a>
+      gives a path for widely-used extension terms to be included in the context document.
+    </p>
+    <p>
+      The terms in this Report are good candidates for that process, but miss a few key criteria. They are not defined in their own namespace. They also miss the criteria of being well-documented, and having their own context
+      document at a permanent URL.
+    </p>
+    <p>
+      Changing the namespace for the terms would change their meaning and would not be backwards compatible. So, the current report aims to fix the two latter problems. It describes a context document for the terms, and
+      defines each of the terms in a similar way to the [[activitystreams-vocabulary]] specification.
+    </p>
+    <p>
+      Besides documenting these terms and giving them a path to inclusion in the Activity Streams 2.0 context document, this specification also serves as a test case for the SocialCG extension inclusion process.
+    </p>
+  </section>
+  <section id="context">
+    <h2>Context</h2>
+    <p>
+      The terms in this document are defined in a context document that can be used in [[JSON-LD]] documents. The
+      context document is available at <a
+        href="https://purl.archive.org/socialweb/miscellany">https://purl.archive.org/socialweb/miscellany</a>.
+    </p>
+    <p>To use these terms, documents should include this context URL in the
+      <code>@context</code> property of the JSON-LD document.
+    </p>
+    <aside class="example">
+      <p>Example usage of the context.</p>
+      <pre class="json">
+          {
+            "@context": [
+              "https://www.w3.org/ns/activitystreams",
+              "https://purl.archive.org/socialweb/miscellany"
+            ],
+            "id": "https://example.com/users/evan",
+            "type": "Person",
+            "name": "Evan Prodromou",
+            "manuallyApprovesFollowers": false
+          }
         </pre>
+    </aside>
+    <p>
+      For backwards compatibility, the context document does <i>not</i> define a separate namespace nor a prefix for
+      these terms, instead falling back to the Activity Streams 2.0 defaults. If needed for
+      disambiguation, the <code>as:</code> prefix defined in the
+      Activity Streams 2.0 context document can be used.
+    </p>
+  </section>
+  <section id="types">
+    <h2>Types</h2>
+    <section id="Hashtag" data-dfn-for="Hashtag">
+      <h3>Hashtag</h3>
+      <table>
+        <tbody>
+          <tr>
+            <td width="10%">
+              URI:
+            </td>
+            <td>
+              <code>https://www.w3.org/ns/activitystreams#Hashtag</code><br>
+              <code>as:Hashtag</code><br>
+              <code>Hashtag</code>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Notes:
+            </td>
+            <td>
+              A metadata tag used for casual categorization of content. Typically a hashtag is presented inline in
+              content prefixed with a hash symbol, "#". See <a
+                href="https://en.wikipedia.org/wiki/Hashtag">https://en.wikipedia.org/wiki/Hashtag</a>. Examples are
+              shown in the [[activitystreams-vocabulary]] specification under
+              <a href="https://www.w3.org/TR/activitystreams-vocabulary/#microsyntaxes">Mentions, Tags, and Other Common
+                Social Microsyntaxes</a> implementation notes, without a type for tag object.
+                Original discussion in ActivityPub issue #<a href="https://github.com/w3c/activitypub/issues/235">235</a>.
+            </td>
+          </tr>
+          <tr>
+            <td>Extends:</td>
+            <td><code><a>Object</a></code></td>
+          </tr>
+          <tr>
+            <td>Properties:</td>
+            <td>Inherits all properties from <code><a>Object</a></code>.</td>
+          </tr>
+        </tbody>
+      </table>
+      <aside class="example">
+        <p>A <a>Note</a> with a <code>Hashtag</code> in its <a>tag</a> array.</p>
+        <pre class="json">
+          {
+            "@context": [
+              "https://www.w3.org/ns/activitystreams",
+              "https://purl.archive.org/socialweb/miscellany"
+            ],
+            "id": "https://example.com/notes/1",
+            "type": "Note",
+            "attributedTo": "https://example.com/users/john",
+            "summary": "A thank-you note",
+            "content": "&lt;a href='http://example.org/tags/givingthanks'&gt;#givingthanks&lt;/a&gt;",
+            "tag": [
+              {
+                "id": "http://example.org/tags/givingthanks",
+                "type": "Hashtag",
+                "name": "#givingthanks"
+              }
+            ]
+          }
       </aside>
-      <section>
-        <h3>I'm a sub-section</h3>
-        <p class="issue" data-number="121">
-          <!-- Issue can automatically be populated from GitHub -->
-        </p>
-      </section>
     </section>
-    <section data-dfn-for="Foo">
-      <h2>Start your spec!</h2>
-      <pre class="idl">
-        [Exposed=Window]
-        interface Foo {
-        attribute DOMString bar;
-        undefined doTheFoo();
-        };
-      </pre>
-      <p>The <dfn>Foo</dfn> interface represents a {{Foo}}.</p>
-      <p>
-        The <dfn>doTheFoo()</dfn> method does the foo. Call it by running
-        {{Foo/doTheFoo()}}.
-      </p>
-      <ol class="algorithm">
-        <li>A |variable:DOMString| can be declared like this.</li>
-      </ol>
+  </section>
+  <section id="properties">
+      <h2>Properties</h2>
+      <section id="manuallyApprovesFollowers" data-dfn-for="manuallyApprovesFollowers">
+        <h3>manuallyApprovesFollowers</h3>
+        <table>
+          <tbody>
+            <tr>
+              <td width="10%">
+                URI:
+              </td>
+              <td>
+                <code>https://www.w3.org/ns/activitystreams#manuallyApprovesFollowers</code><br>
+                <code>as:manuallyApprovesFollowers</code><br>
+                <code>manuallyApprovesFollowers</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Notes:
+              </td>
+              <td>
+                When *true*, conveys that for this actor, follow requests are not usually automatically approved, but instead are examined by a person who may accept or reject the request, at some time in the future.  Setting of FALSE conveys no information and may be ignored. This information is typically used to affect display of accounts, such as showing an account as private or locked.
+              </td>
+            </tr>
+            <tr>
+              <td>Domain:</td>
+              <td><code>Object</code> (an ActivityPub <a href="https://www.w3.org/TR/activitypub/#actors">Actor</a>)</td>
+            </tr>
+            <tr>
+              <td>Range:</td>
+              <td><code>Boolean</code></td>
+            </tr>
+            <tr>
+              <td>Functional:</td>
+              <td><code>true</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <aside class="example">
+          <p>An ActivityPub actor with the <code>manuallyApprovesFollowers</code> flag set to true.</p>
+          <pre class="json">
+          {
+            "@context": [
+              "https://www.w3.org/ns/activitystreams",
+              "https://purl.archive.org/socialweb/miscellany"
+            ],
+            "id": "https://example.com/users/alyssa",
+            "type": "Person",
+            "name": "Alyssa P. Hacker",
+            "inbox": "https://example.com/users/alyssa/inbox",
+            "outbox": "https://example.com/users/alyssa/outbox",
+            "followers": "https://example.com/users/alyssa/followers",
+            "following": "https://example.com/users/alyssa/following",
+            "liked": "https://example.com/users/alyssa/liked",
+            "manuallyApprovesFollowers": true
+          }
+          </pre>
+        </aside>
+      </section>
+      <section id="movedTo" data-dfn-for="movedTo">
+        <h3>movedTo</h3>
+        <table>
+          <tbody>
+            <tr>
+              <td width="10%">
+                URI:
+              </td>
+              <td>
+                <code>https://www.w3.org/ns/activitystreams#movedTo</code><br>
+                <code>as:movedTo</code><br>
+                <code>movedTo</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Notes:
+              </td>
+              <td>
+                Signifies that an actor has been moved to a different ID. Used in Mastodon-style data portability with the <a>Move</a> activity; see <a href="https://swicg.github.io/activitypub-data-portability/#move-action">ActivityPub Data Portability/Move Action</a> for more details.
+              </td>
+            </tr>
+            <tr>
+              <td>Domain:</td>
+              <td><code>Object</code> (an ActivityPub <a href="https://www.w3.org/TR/activitypub/#actors">Actor</a>)</td>
+            </tr>
+            <tr>
+              <td>Range:</td>
+              <td><code>Object</code> (an ActivityPub <a href="https://www.w3.org/TR/activitypub/#actors">Actor</a>)</td>
+            </tr>
+            <tr>
+              <td>Functional:</td>
+              <td><code>true</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <aside class="example">
+          <p>An ActivityPub actor with the <code>movedTo</code> property set to a new ID.</p>
+          <pre class="json">
+          {
+            "@context": [
+              "https://www.w3.org/ns/activitystreams",
+              "https://purl.archive.org/socialweb/miscellany"
+            ],
+            "id": "https://example.com/users/alyssa",
+            "type": "Person",
+            "name": "Alyssa P. Hacker",
+            "inbox": "https://example.com/users/alyssa/inbox",
+            "outbox": "https://example.com/users/alyssa/outbox",
+            "followers": "https://example.com/users/alyssa/followers",
+            "following": "https://example.com/users/alyssa/following",
+            "liked": "https://example.com/users/alyssa/liked",
+            "movedTo": "https://example.org/users/alyssa2"
+          }
+          </pre>
+        </aside>
+      </section>
+      <section id="sensitive" data-dfn-for="sensitive">
+        <h3>sensitive</h3>
+        <table>
+          <tbody>
+            <tr>
+              <td width="10%">
+                URI:
+              </td>
+              <td>
+                <code>https://www.w3.org/ns/activitystreams#sensitive</code><br>
+                <code>as:sensitive</code><br>
+                <code>sensitive</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Notes:
+              </td>
+              <td>
+                The <code>sensitive</code> property (a boolean) on an object indicates that some users may wish to apply discretion about viewing its content, whether due to nudity, violence, or any other likely aspects that viewers may be sensitive to.  This is comparable to what is popularly called "NSFW" (Not Safe For Work) or "trigger warning" in some systems.  Implementations may choose to hide content flagged with this property by default, exposed at user discretion. Original discussion in ActivityPub issue #<a href="https://github.com/w3c/activitypub/issues/231">231</a>.
+              </td>
+            </tr>
+            <tr>
+              <td>Domain:</td>
+              <td><code>Object</code></td>
+            </tr>
+            <tr>
+              <td>Range:</td>
+              <td><code>Boolean</code></td>
+            </tr>
+            <tr>
+              <td>Functional:</td>
+              <td><code>true</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <aside class="example">
+          <p>An ActivityPub <code>Note</code> with the <code>sensitive</code> property set to true.</p>
+          <pre class="json">
+          {
+            "@context": [
+              "https://www.w3.org/ns/activitystreams",
+              "https://purl.archive.org/socialweb/miscellany"
+            ],
+            "id": "https://example.com/notes/1",
+            "type": "Note",
+            "attributedTo": "https://example.com/users/john",
+            "summary": "A sensitive note",
+            "content": "This note contains sensitive content.",
+            "sensitive": true
+          }
+          </pre>
+      </section>
     </section>
     <section id="conformance">
       <p>
