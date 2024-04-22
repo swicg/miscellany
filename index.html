@@ -128,22 +128,33 @@
               Notes:
             </td>
             <td>
-              A metadata tag used for casual categorization of content. Typically a hashtag is presented inline in
+              <p>
+                A metadata tag used for casual categorization of content. Typically a hashtag is presented inline in
               content prefixed with a hash symbol, "#". See <a
                 href="https://en.wikipedia.org/wiki/Hashtag">https://en.wikipedia.org/wiki/Hashtag</a>. Examples are
               shown in the [[activitystreams-vocabulary]] specification under
               <a href="https://www.w3.org/TR/activitystreams-vocabulary/#microsyntaxes">Mentions, Tags, and Other Common
                 Social Microsyntaxes</a> implementation notes, without a type for tag object.
                 Original discussion in ActivityPub issue #<a href="https://github.com/w3c/activitypub/issues/235">235</a>.
+              </p>
+              <p>
+                The <code>name</code> property MAY include an initial hash character "#".
+              </p>
+              <p>
+                Hashtag objects with the same <code>name</code> are considered equivalent, with or without the initial hash character.
+              </p>
+              <p>
+                Despite the name, the Hashtag type may be used for metadata tags that are not implemented with inline microsyntax.
+              </p>
             </td>
           </tr>
           <tr>
             <td>Extends:</td>
-            <td><code><a>Object</a></code></td>
+            <td><code><a>Link</a></code></td>
           </tr>
           <tr>
             <td>Properties:</td>
-            <td>Inherits all properties from <code><a>Object</a></code>.</td>
+            <td>Inherits all properties from <code><a>Link</a></code>.</td>
           </tr>
         </tbody>
       </table>
@@ -159,12 +170,60 @@
             "type": "Note",
             "attributedTo": "https://example.com/users/john",
             "summary": "A thank-you note",
-            "content": "&lt;a href='http://example.org/tags/givingthanks'&gt;#givingthanks&lt;/a&gt;",
+            "content": "&lt;a href='https://example.org/tags/givingthanks'&gt;#givingthanks&lt;/a&gt;",
             "tag": [
               {
-                "id": "http://example.org/tags/givingthanks",
                 "type": "Hashtag",
+                "href": "https://example.org/tags/givingthanks",
                 "name": "#givingthanks"
+              }
+            ]
+          }
+      </aside>
+      <aside class="example">
+        <p>A collection of <a>Image</a> objects with <code>Hashtag</code> objects in their <a>tag</a> array. The images are grouped together
+        because the hashtag <code>name</code> values are equivalent.</p>
+        <pre class="json">
+          {
+            "@context": [
+              "https://www.w3.org/ns/activitystreams",
+              "https://purl.archive.org/socialweb/miscellany"
+            ],
+            "id": "https://photos.example/collections/tag/givingthanks",
+            "attributedTo": "https://photos.example/editors/asjt",
+            "to": "as:Public",
+            "type": "Collection",
+            "summary": "Images tagged with #eclipse2024",
+            "items": [
+              {
+                "id": "https://example.com/images/1",
+                "type": "Image",
+                "name": "Fred and Ethel watching the eclipse",
+                "attributedTo": "https://example.com/users/ethel",
+                "to": "as:Public",
+                "url": "https://example.com/files/image1.png",
+                "tag": [
+                  {
+                    "type": "Hashtag",
+                    "href": "https://example.com/tags/eclipse2024",
+                    "name": "#eclipse2024"
+                  }
+                ]
+              },
+              {
+                "type": "Image",
+                "url": "https://social.example/uploads/2e4f8e6c.png",
+                "attributedTo": "https://social.example/users/nasa",
+                "to": "as:Public",
+                "name": "Eclipse from the ISS",
+                "summary": "&lt;a href='https://tags.example/eclipse2024'&gt;#eclipse2024&lt;/a&gt;",
+                "tag": [
+                  {
+                    "type": "Hashtag",
+                    "href": "https://tags.example/eclipse2024",
+                    "name": "eclipse2024"
+                  }
+                ]
               }
             ]
           }
