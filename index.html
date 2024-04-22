@@ -108,7 +108,7 @@
   </section>
   <section id="types">
     <h2>Types</h2>
-    <p>This extension includes one object type, <a>Hashtag</a>.</p>
+    <p>This extension includes one object type, <a href="#Hashtag">Hashtag</a>.</p>
     <section id="Hashtag" data-dfn-for="Hashtag">
       <h3>Hashtag</h3>
       <table>
@@ -150,16 +150,16 @@
           </tr>
           <tr>
             <td>Extends:</td>
-            <td><code><a>Link</a></code></td>
+            <td><code><a href="https://www.w3.org/TR/activitystreams-core/#link">Link</a></code></td>
           </tr>
           <tr>
             <td>Properties:</td>
-            <td>Inherits all properties from <code><a>Link</a></code>.</td>
+            <td>Inherits all properties from <code><a href="https://www.w3.org/TR/activitystreams-core/#link">Link</a></code>.</td>
           </tr>
         </tbody>
       </table>
       <aside class="example">
-        <p>A <a>Note</a> with a <code>Hashtag</code> in its <a>tag</a> array.</p>
+        <p>A <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-note">Note</a> with a <code>Hashtag</code> in its <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tag">tag</a> array.</p>
         <pre class="json">
           {
             "@context": [
@@ -181,7 +181,7 @@
           }
       </aside>
       <aside class="example">
-        <p>A collection of <a>Image</a> objects with <code>Hashtag</code> objects in their <a>tag</a> array. The images are grouped together
+        <p>A collection of <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-image">Image</a> objects with <code>Hashtag</code> objects in their <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tag">tag</a> array. The images are grouped together
         because the hashtag <code>name</code> values are equivalent.</p>
         <pre class="json">
           {
@@ -233,7 +233,7 @@
   </section>
   <section id="properties">
       <h2>Properties</h2>
-      <p>This extension includes three properties: <a>manuallyApprovesFollowers</a>, <a>movedTo</a>, and <a>sensitive</a>.</p>
+      <p>This extension includes three properties: <a href="#manuallyApprovesFollowers">manuallyApprovesFollowers</a>, <a href="#movedTo">movedTo</a>, and <a href="#sensitive">sensitive</a>.</p>
       <section id="manuallyApprovesFollowers" data-dfn-for="manuallyApprovesFollowers">
         <h3>manuallyApprovesFollowers</h3>
         <table>
@@ -310,7 +310,7 @@
                 Notes:
               </td>
               <td>
-                Signifies that an actor has been moved to a different ID. Used in Mastodon-style data portability with the <a>Move</a> activity; see <a href="https://swicg.github.io/activitypub-data-portability/#move-action">ActivityPub Data Portability/Move Action</a> for more details.
+                Signifies that an actor has been moved to a different ID. Used in Mastodon-style data portability with the <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-move">Move</a> activity; see <a href="https://swicg.github.io/activitypub-data-portability/#move-action">ActivityPub Data Portability/Move Action</a> for more details.
               </td>
             </tr>
             <tr>
