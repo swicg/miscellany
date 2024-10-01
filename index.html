@@ -105,6 +105,88 @@
       disambiguation, the <code>as:</code> prefix defined in the
       Activity Streams 2.0 context document can be used.
     </p>
+    <section>
+      <h3>Version-stamped URLs</h3>
+      <p>Because this extension documents a finite set of historically-defined
+        properties and types, it is unlikely that many changes
+        will be made to the context document.</p>
+    
+      <p>Nevertheless, to ease the use of
+        this context for implementers with strict versioning requirements,
+        additional URL aliases are provided with versions included. A <a href="https://semver.org/">semantic versioning</a>
+        strategy is used to convey the guarantees of the version number.
+      </p>
+    
+      <table>
+        <tbody>
+          <tr>
+            <th>Version</th>
+            <th>URL</th>
+            <th>Notes</th>
+          </tr>
+          <tr>
+            <td>(latest)</td>
+            <td><a href="https://purl.archive.org/socialweb/miscellany">https://purl.archive.org/socialweb/miscellany</a>
+            </td>
+            <td>The latest version of the context is always available at this URL. Most implementers can use this URL.</td>
+          </tr>
+          <tr>
+            <td>1.0.0</td>
+            <td><a
+                href="https://purl.archive.org/socialweb/miscellany/1.0.0">https://purl.archive.org/socialweb/miscellany/1.0.0</a>
+            </td>
+            <td>The exact version of the context document. The resource at this URL should be immutable. This URL is useful
+              for implementers that
+              need an exact, byte-wise replicable version of the document.
+            </td>
+          </tr>
+          <tr>
+            <td>1.0.x</td>
+            <td><a
+                href="https://purl.archive.org/socialweb/miscellany/1.0">https://purl.archive.org/socialweb/miscellany/1.0</a>
+            </td>
+            <td>Backwards-compatible fixes are possible, but no additional types or properties are defined. This is useful
+              for implementers
+              that use multiple extensions and want to ensure that no
+              conflicting terms are added.
+            </td>
+          </tr>
+          <tr>
+            <td>1.x.x</td>
+            <td><a
+                href="https://purl.archive.org/socialweb/miscellany/1">https://purl.archive.org/socialweb/miscellany/1</a>
+            </td>
+            <td>Backwards-compatible fixes, additional types and properties are possible. This is useful for implementers
+              that want to ensure
+              that the properties and types they use are stable and will not change, but do not need to avoid term
+              conflicts.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <p>Using the version-stamped context URLs is similar to the unstamped URL.</p>
+    
+      <aside class="example">
+        <p>Example usage of a version-stamped context URL.</p>
+        <pre class="json">
+                  {
+                    "@context": [
+                      "https://www.w3.org/ns/activitystreams",
+                      "https://purl.archive.org/socialweb/miscellany/1.0"
+                    ],
+                    "id": "https://example.com/users/evan",
+                    "type": "Person",
+                    "name": "Evan Prodromou",
+                    "manuallyApprovesFollowers": false
+                  }
+                </pre>
+      </aside>
+    
+      <p>No backwards-incompatible changes to this context are anticipated. However, if those changes were made, a new major
+        version (2.x.x) would be added and the existing 1.x.x URLs would continue to be provided.</p>
+    
+    </section>
   </section>
   <section id="types">
     <h2>Types</h2>
