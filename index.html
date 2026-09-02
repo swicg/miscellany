@@ -44,7 +44,7 @@
     </p>
     <p>
       As it was, the Mastodon team included a number of terms that the software needed to implement Mastodon features
-      not defined in basic ActivityPub. Some terms were proposed for inclusion in the ActivityPub specification, but weren't included because of time constraints.
+      not defined in basic ActivityPub. Some terms were proposed for inclusion in the ActivityPub specification, but weren&apos;t included because of time constraints.
     </p>
     <p>
       In the absence of a clear extensions process, those terms were not given their own namespace or context document, but instead were defined in the default namespace for Activity Streams 2.0.
@@ -53,7 +53,7 @@
     </p>
     <p>
       The terms have been widely adopted by other ActivityPub implementations.
-      Newer Mastodon-specific extensions have been defined in Mastodon's own namespace. The first few terms, though,
+      Newer Mastodon-specific extensions have been defined in Mastodon&apos;s own namespace. The first few terms, though,
       remain undocumented in a formal specification.
     </p>
     <p>
@@ -88,14 +88,14 @@
       <p>Example usage of the context.</p>
       <pre class="json">
           {
-            "@context": [
-              "https://www.w3.org/ns/activitystreams",
-              "https://purl.archive.org/miscellany"
+            &quot;@context&quot;: [
+              &quot;https://www.w3.org/ns/activitystreams&quot;,
+              &quot;https://purl.archive.org/miscellany&quot;
             ],
-            "id": "https://example.com/users/evan",
-            "type": "Person",
-            "name": "Evan Prodromou",
-            "manuallyApprovesFollowers": false
+            &quot;id&quot;: &quot;https://example.com/users/evan&quot;,
+            &quot;type&quot;: &quot;Person&quot;,
+            &quot;name&quot;: &quot;Evan Prodromou&quot;,
+            &quot;manuallyApprovesFollowers&quot;: false
           }
         </pre>
     </aside>
@@ -171,14 +171,14 @@
         <p>Example usage of a version-stamped context URL.</p>
         <pre class="json">
                   {
-                    "@context": [
-                      "https://www.w3.org/ns/activitystreams",
-                      "https://purl.archive.org/miscellany/1.0"
+                    &quot;@context&quot;: [
+                      &quot;https://www.w3.org/ns/activitystreams&quot;,
+                      &quot;https://purl.archive.org/miscellany/1.0&quot;
                     ],
-                    "id": "https://example.com/users/evan",
-                    "type": "Person",
-                    "name": "Evan Prodromou",
-                    "manuallyApprovesFollowers": false
+                    &quot;id&quot;: &quot;https://example.com/users/evan&quot;,
+                    &quot;type&quot;: &quot;Person&quot;,
+                    &quot;name&quot;: &quot;Evan Prodromou&quot;,
+                    &quot;manuallyApprovesFollowers&quot;: false
                   }
                 </pre>
       </aside>
@@ -196,7 +196,7 @@
       <table>
         <tbody>
           <tr>
-            <td width="10%">
+            <td style="width: 10%;">
               URI:
             </td>
             <td>
@@ -212,7 +212,7 @@
             <td>
               <p>
                 A metadata tag used for casual categorization of content. Often, a hashtag is presented inline in
-              content prefixed with a hash symbol, "#". See <a
+              content prefixed with a hash symbol, &quot;#&quot;. See <a
                 href="https://en.wikipedia.org/wiki/Hashtag">https://en.wikipedia.org/wiki/Hashtag</a>. Examples are
               shown in the [[activitystreams-vocabulary]] specification under
               <a href="https://www.w3.org/TR/activitystreams-vocabulary/#microsyntaxes">Mentions, Tags, and Other Common
@@ -220,7 +220,7 @@
                 Original discussion in ActivityPub issue #<a href="https://github.com/w3c/activitypub/issues/235">235</a>.
               </p>
               <p>
-                The <code>name</code> property MAY include an initial hash character "#".
+                The <code>name</code> property MAY include an initial hash character &quot;#&quot;.
               </p>
               <p>
                 Some processors treat Hashtag objects with the same <code>name</code> as equivalent, with or without the initial hash character. For example, an aggregator service may list all objects with <code>tag</code> items of type <code>Hashtag</code> with the same <code>name</code> together, even if their <code>href</code> values differ.
@@ -244,259 +244,262 @@
         <p>A <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-note">Note</a> with a <code>Hashtag</code> in its <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tag">tag</a> array.</p>
         <pre class="json">
           {
-            "@context": [
-              "https://www.w3.org/ns/activitystreams",
-              "https://purl.archive.org/miscellany"
+            &quot;@context&quot;: [
+              &quot;https://www.w3.org/ns/activitystreams&quot;,
+              &quot;https://purl.archive.org/miscellany&quot;
             ],
-            "id": "https://example.com/notes/1",
-            "type": "Note",
-            "attributedTo": "https://example.com/users/john",
-            "summary": "A thank-you note",
-            "content": "&lt;a href='https://example.org/tags/givingthanks'&gt;#givingthanks&lt;/a&gt;",
-            "tag": [
+            &quot;id&quot;: &quot;https://example.com/notes/1&quot;,
+            &quot;type&quot;: &quot;Note&quot;,
+            &quot;attributedTo&quot;: &quot;https://example.com/users/john&quot;,
+            &quot;summary&quot;: &quot;A thank-you note&quot;,
+            &quot;content&quot;: &quot;&lt;a href=&apos;https://example.org/tags/givingthanks&apos;&gt;#givingthanks&lt;/a&gt;&quot;,
+            &quot;tag&quot;: [
               {
-                "type": "Hashtag",
-                "href": "https://example.org/tags/givingthanks",
-                "name": "#givingthanks"
+                &quot;type&quot;: &quot;Hashtag&quot;,
+                &quot;href&quot;: &quot;https://example.org/tags/givingthanks&quot;,
+                &quot;name&quot;: &quot;#givingthanks&quot;
               }
             ]
           }
+          </pre>
       </aside>
       <aside class="example">
         <p>A collection of <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-image">Image</a> objects with <code>Hashtag</code> objects in their <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tag">tag</a> array. The images are grouped together
         because the hashtag <code>name</code> values are equivalent.</p>
         <pre class="json">
           {
-            "@context": [
-              "https://www.w3.org/ns/activitystreams",
-              "https://purl.archive.org/miscellany"
+            &quot;@context&quot;: [
+              &quot;https://www.w3.org/ns/activitystreams&quot;,
+              &quot;https://purl.archive.org/miscellany&quot;
             ],
-            "id": "https://photos.example/collections/tag/givingthanks",
-            "attributedTo": "https://photos.example/editors/asjt",
-            "to": "as:Public",
-            "type": "Collection",
-            "summary": "Images tagged with #eclipse2024",
-            "items": [
+            &quot;id&quot;: &quot;https://photos.example/collections/tag/givingthanks&quot;,
+            &quot;attributedTo&quot;: &quot;https://photos.example/editors/asjt&quot;,
+            &quot;to&quot;: &quot;as:Public&quot;,
+            &quot;type&quot;: &quot;Collection&quot;,
+            &quot;summary&quot;: &quot;Images tagged with #eclipse2024&quot;,
+            &quot;items&quot;: [
               {
-                "id": "https://example.com/images/1",
-                "type": "Image",
-                "name": "Fred and Ethel watching the eclipse",
-                "attributedTo": "https://example.com/users/ethel",
-                "to": "as:Public",
-                "url": "https://example.com/files/image1.png",
-                "tag": [
+                &quot;id&quot;: &quot;https://example.com/images/1&quot;,
+                &quot;type&quot;: &quot;Image&quot;,
+                &quot;name&quot;: &quot;Fred and Ethel watching the eclipse&quot;,
+                &quot;attributedTo&quot;: &quot;https://example.com/users/ethel&quot;,
+                &quot;to&quot;: &quot;as:Public&quot;,
+                &quot;url&quot;: &quot;https://example.com/files/image1.png&quot;,
+                &quot;tag&quot;: [
                   {
-                    "type": "Hashtag",
-                    "href": "https://example.com/tags/eclipse2024",
-                    "name": "eclipse2024"
+                    &quot;type&quot;: &quot;Hashtag&quot;,
+                    &quot;href&quot;: &quot;https://example.com/tags/eclipse2024&quot;,
+                    &quot;name&quot;: &quot;eclipse2024&quot;
                   }
                 ]
               },
               {
-                "id": "https://social.example/users/nasa/images/2e4f8e6c.jsonld",
-                "type": "Image",
-                "url": "https://social.example/uploads/2e4f8e6c.png",
-                "attributedTo": "https://social.example/users/nasa",
-                "to": "as:Public",
-                "name": "Eclipse from the ISS",
-                "summary": "&lt;a href='https://tags.example/eclipse2024'&gt;#eclipse2024&lt;/a&gt;",
-                "tag": [
+                &quot;id&quot;: &quot;https://social.example/users/nasa/images/2e4f8e6c.jsonld&quot;,
+                &quot;type&quot;: &quot;Image&quot;,
+                &quot;url&quot;: &quot;https://social.example/uploads/2e4f8e6c.png&quot;,
+                &quot;attributedTo&quot;: &quot;https://social.example/users/nasa&quot;,
+                &quot;to&quot;: &quot;as:Public&quot;,
+                &quot;name&quot;: &quot;Eclipse from the ISS&quot;,
+                &quot;summary&quot;: &quot;&lt;a href=&apos;https://tags.example/eclipse2024&apos;&gt;#eclipse2024&lt;/a&gt;&quot;,
+                &quot;tag&quot;: [
                   {
-                    "type": "Hashtag",
-                    "href": "https://tags.example/eclipse2024",
-                    "name": "#eclipse2024"
+                    &quot;type&quot;: &quot;Hashtag&quot;,
+                    &quot;href&quot;: &quot;https://tags.example/eclipse2024&quot;,
+                    &quot;name&quot;: &quot;#eclipse2024&quot;
                   }
                 ]
               }
             ]
           }
+          </pre>
       </aside>
     </section>
   </section>
   <section id="properties">
-      <h2>Properties</h2>
-      <p>This extension includes three properties: <a href="#manuallyApprovesFollowers">manuallyApprovesFollowers</a>, <a href="#movedTo">movedTo</a>, and <a href="#sensitive">sensitive</a>.</p>
-      <section id="manuallyApprovesFollowers" data-dfn-for="manuallyApprovesFollowers">
-        <h3>manuallyApprovesFollowers</h3>
-        <table>
-          <tbody>
-            <tr>
-              <td width="10%">
-                URI:
-              </td>
-              <td>
-                <code>https://www.w3.org/ns/activitystreams#manuallyApprovesFollowers</code><br>
-                <code>as:manuallyApprovesFollowers</code><br>
-                <code>manuallyApprovesFollowers</code>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Notes:
-              </td>
-              <td>
-                When *true*, conveys that for this actor, follow requests are not usually automatically approved, but instead are examined by a person who may accept or reject the request, at some time in the future.  Setting of FALSE conveys no information and may be ignored. This information is typically used to affect display of accounts, such as showing an account as private or locked.
-              </td>
-            </tr>
-            <tr>
-              <td>Domain:</td>
-              <td><code>Object</code> (an ActivityPub <a href="https://www.w3.org/TR/activitypub/#actors">Actor</a>)</td>
-            </tr>
-            <tr>
-              <td>Range:</td>
-              <td><code>Boolean</code></td>
-            </tr>
-            <tr>
-              <td>Functional:</td>
-              <td><code>true</code></td>
-            </tr>
-          </tbody>
-        </table>
-        <aside class="example">
-          <p>An ActivityPub actor with the <code>manuallyApprovesFollowers</code> flag set to true.</p>
-          <pre class="json">
+    <h2>Properties</h2>
+    <p>This extension includes three properties: <a href="#manuallyApprovesFollowers">manuallyApprovesFollowers</a>, <a href="#movedTo">movedTo</a>, and <a href="#sensitive">sensitive</a>.</p>
+    <section id="manuallyApprovesFollowers" data-dfn-for="manuallyApprovesFollowers">
+      <h3>manuallyApprovesFollowers</h3>
+      <table>
+        <tbody>
+          <tr>
+            <td style="width: 10%;">
+              URI:
+            </td>
+            <td>
+              <code>https://www.w3.org/ns/activitystreams#manuallyApprovesFollowers</code><br>
+              <code>as:manuallyApprovesFollowers</code><br>
+              <code>manuallyApprovesFollowers</code>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Notes:
+            </td>
+            <td>
+              When *true*, conveys that for this actor, follow requests are not usually automatically approved, but instead are examined by a person who may accept or reject the request, at some time in the future.  Setting of FALSE conveys no information and may be ignored. This information is typically used to affect display of accounts, such as showing an account as private or locked.
+            </td>
+          </tr>
+          <tr>
+            <td>Domain:</td>
+            <td><code>Object</code> (an ActivityPub <a href="https://www.w3.org/TR/activitypub/#actors">Actor</a>)</td>
+          </tr>
+          <tr>
+            <td>Range:</td>
+            <td><code>Boolean</code></td>
+          </tr>
+          <tr>
+            <td>Functional:</td>
+            <td><code>true</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <aside class="example">
+        <p>An ActivityPub actor with the <code>manuallyApprovesFollowers</code> flag set to true.</p>
+        <pre class="json">
           {
-            "@context": [
-              "https://www.w3.org/ns/activitystreams",
-              "https://purl.archive.org/miscellany"
+            &quot;@context&quot;: [
+              &quot;https://www.w3.org/ns/activitystreams&quot;,
+              &quot;https://purl.archive.org/miscellany&quot;
             ],
-            "id": "https://example.com/users/alyssa",
-            "type": "Person",
-            "name": "Alyssa P. Hacker",
-            "inbox": "https://example.com/users/alyssa/inbox",
-            "outbox": "https://example.com/users/alyssa/outbox",
-            "followers": "https://example.com/users/alyssa/followers",
-            "following": "https://example.com/users/alyssa/following",
-            "liked": "https://example.com/users/alyssa/liked",
-            "manuallyApprovesFollowers": true
+            &quot;id&quot;: &quot;https://example.com/users/alyssa&quot;,
+            &quot;type&quot;: &quot;Person&quot;,
+            &quot;name&quot;: &quot;Alyssa P. Hacker&quot;,
+            &quot;inbox&quot;: &quot;https://example.com/users/alyssa/inbox&quot;,
+            &quot;outbox&quot;: &quot;https://example.com/users/alyssa/outbox&quot;,
+            &quot;followers&quot;: &quot;https://example.com/users/alyssa/followers&quot;,
+            &quot;following&quot;: &quot;https://example.com/users/alyssa/following&quot;,
+            &quot;liked&quot;: &quot;https://example.com/users/alyssa/liked&quot;,
+            &quot;manuallyApprovesFollowers&quot;: true
           }
-          </pre>
-        </aside>
-      </section>
-      <section id="movedTo" data-dfn-for="movedTo">
-        <h3>movedTo</h3>
-        <table>
-          <tbody>
-            <tr>
-              <td width="10%">
-                URI:
-              </td>
-              <td>
-                <code>https://www.w3.org/ns/activitystreams#movedTo</code><br>
-                <code>as:movedTo</code><br>
-                <code>movedTo</code>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Notes:
-              </td>
-              <td>
-                Signifies that an actor has been moved to a different ID. Used in Mastodon-style data portability with the <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-move">Move</a> activity; see <a href="https://swicg.github.io/activitypub-data-portability/#move-action">ActivityPub Data Portability/Move Action</a> for more details.
-              </td>
-            </tr>
-            <tr>
-              <td>Domain:</td>
-              <td><code>Object</code> (an ActivityPub <a href="https://www.w3.org/TR/activitypub/#actors">Actor</a>)</td>
-            </tr>
-            <tr>
-              <td>Range:</td>
-              <td><code>Object</code> (an ActivityPub <a href="https://www.w3.org/TR/activitypub/#actors">Actor</a>)</td>
-            </tr>
-            <tr>
-              <td>Functional:</td>
-              <td><code>true</code></td>
-            </tr>
-          </tbody>
-        </table>
-        <aside class="example">
-          <p>An ActivityPub actor with the <code>movedTo</code> property set to a new ID.</p>
-          <pre class="json">
+        </pre>
+      </aside>
+    </section>
+    <section id="movedTo" data-dfn-for="movedTo">
+      <h3>movedTo</h3>
+      <table>
+        <tbody>
+          <tr>
+            <td style="width: 10%;">
+              URI:
+            </td>
+            <td>
+              <code>https://www.w3.org/ns/activitystreams#movedTo</code><br>
+              <code>as:movedTo</code><br>
+              <code>movedTo</code>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Notes:
+            </td>
+            <td>
+              Signifies that an actor has been moved to a different ID. Used in Mastodon-style data portability with the <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-move">Move</a> activity; see <a href="https://swicg.github.io/activitypub-data-portability/#move-action">ActivityPub Data Portability/Move Action</a> for more details.
+            </td>
+          </tr>
+          <tr>
+            <td>Domain:</td>
+            <td><code>Object</code> (an ActivityPub <a href="https://www.w3.org/TR/activitypub/#actors">Actor</a>)</td>
+          </tr>
+          <tr>
+            <td>Range:</td>
+            <td><code>Object</code> (an ActivityPub <a href="https://www.w3.org/TR/activitypub/#actors">Actor</a>)</td>
+          </tr>
+          <tr>
+            <td>Functional:</td>
+            <td><code>true</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <aside class="example">
+        <p>An ActivityPub actor with the <code>movedTo</code> property set to a new ID.</p>
+        <pre class="json">
           {
-            "@context": [
-              "https://www.w3.org/ns/activitystreams",
-              "https://purl.archive.org/miscellany"
+            &quot;@context&quot;: [
+              &quot;https://www.w3.org/ns/activitystreams&quot;,
+              &quot;https://purl.archive.org/miscellany&quot;
             ],
-            "id": "https://example.com/users/alyssa",
-            "type": "Person",
-            "name": "Alyssa P. Hacker",
-            "inbox": "https://example.com/users/alyssa/inbox",
-            "outbox": "https://example.com/users/alyssa/outbox",
-            "followers": "https://example.com/users/alyssa/followers",
-            "following": "https://example.com/users/alyssa/following",
-            "liked": "https://example.com/users/alyssa/liked",
-            "movedTo": "https://example.org/users/alyssa2"
+            &quot;id&quot;: &quot;https://example.com/users/alyssa&quot;,
+            &quot;type&quot;: &quot;Person&quot;,
+            &quot;name&quot;: &quot;Alyssa P. Hacker&quot;,
+            &quot;inbox&quot;: &quot;https://example.com/users/alyssa/inbox&quot;,
+            &quot;outbox&quot;: &quot;https://example.com/users/alyssa/outbox&quot;,
+            &quot;followers&quot;: &quot;https://example.com/users/alyssa/followers&quot;,
+            &quot;following&quot;: &quot;https://example.com/users/alyssa/following&quot;,
+            &quot;liked&quot;: &quot;https://example.com/users/alyssa/liked&quot;,
+            &quot;movedTo&quot;: &quot;https://example.org/users/alyssa2&quot;
           }
-          </pre>
-        </aside>
-      </section>
-      <section id="sensitive" data-dfn-for="sensitive">
-        <h3>sensitive</h3>
-        <table>
-          <tbody>
-            <tr>
-              <td width="10%">
-                URI:
-              </td>
-              <td>
-                <code>https://www.w3.org/ns/activitystreams#sensitive</code><br>
-                <code>as:sensitive</code><br>
-                <code>sensitive</code>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Notes:
-              </td>
-              <td>
-                The <code>sensitive</code> property (a boolean) on an object indicates that some users may wish to apply discretion about viewing its content, whether due to nudity, violence, or any other likely aspects that viewers may be sensitive to.  This is comparable to what is popularly called "NSFW" (Not Safe For Work) or "trigger warning" in some systems.  Implementations may choose to hide content flagged with this property by default, exposed at user discretion. Original discussion in ActivityPub issue #<a href="https://github.com/w3c/activitypub/issues/231">231</a>.
-              </td>
-            </tr>
-            <tr>
-              <td>Domain:</td>
-              <td>
-                <code>Object</code> | <code>Link</code>
-              </td>
-            </tr>
-            <tr>
-              <td>Range:</td>
-              <td><code>Boolean</code></td>
-            </tr>
-            <tr>
-              <td>Functional:</td>
-              <td><code>true</code></td>
-            </tr>
-          </tbody>
-        </table>
-        <aside class="example">
-          <p>An ActivityPub <code>Note</code> with the <code>sensitive</code> property set to true.</p>
-          <pre class="json">
+        </pre>
+      </aside>
+    </section>
+    <section id="sensitive" data-dfn-for="sensitive">
+      <h3>sensitive</h3>
+      <table>
+        <tbody>
+          <tr>
+            <td style="width: 10%;">
+              URI:
+            </td>
+            <td>
+              <code>https://www.w3.org/ns/activitystreams#sensitive</code><br>
+              <code>as:sensitive</code><br>
+              <code>sensitive</code>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Notes:
+            </td>
+            <td>
+              The <code>sensitive</code> property (a boolean) on an object indicates that some users may wish to apply discretion about viewing its content, whether due to nudity, violence, or any other likely aspects that viewers may be sensitive to.  This is comparable to what is popularly called &quot;NSFW&quot; (Not Safe For Work) or &quot;trigger warning&quot; in some systems.  Implementations may choose to hide content flagged with this property by default, exposed at user discretion. Original discussion in ActivityPub issue #<a href="https://github.com/w3c/activitypub/issues/231">231</a>.
+            </td>
+          </tr>
+          <tr>
+            <td>Domain:</td>
+            <td>
+              <code>Object</code> | <code>Link</code>
+            </td>
+          </tr>
+          <tr>
+            <td>Range:</td>
+            <td><code>Boolean</code></td>
+          </tr>
+          <tr>
+            <td>Functional:</td>
+            <td><code>true</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <aside class="example">
+        <p>An ActivityPub <code>Note</code> with the <code>sensitive</code> property set to true.</p>
+        <pre class="json">
           {
-            "@context": [
-              "https://www.w3.org/ns/activitystreams",
-              "https://purl.archive.org/miscellany"
+            &quot;@context&quot;: [
+              &quot;https://www.w3.org/ns/activitystreams&quot;,
+              &quot;https://purl.archive.org/miscellany&quot;
             ],
-            "id": "https://example.com/notes/1",
-            "type": "Note",
-            "attributedTo": "https://example.com/users/john",
-            "summary": "A sensitive note",
-            "content": "This note contains sensitive content.",
-            "sensitive": true
+            &quot;id&quot;: &quot;https://example.com/notes/1&quot;,
+            &quot;type&quot;: &quot;Note&quot;,
+            &quot;attributedTo&quot;: &quot;https://example.com/users/john&quot;,
+            &quot;summary&quot;: &quot;A sensitive note&quot;,
+            &quot;content&quot;: &quot;This note contains sensitive content.&quot;,
+            &quot;sensitive&quot;: true
           }
-          </pre>
-      </section>
+        </pre>
+      </aside>
     </section>
-    <section id="conformance">
-      <p>
-        This is required for specifications that contain normative material.
-      </p>
-    </section>
-    <section class="appendix informative" id="changelog">
-      <h2>Changelog</h2>
-      <ul>
-        <li><strong>2026-08-19</strong>: Update to 1.0.1 version of context document that drops the types for boolean terms for compatibility with existing implementations.</li>
-        <li><strong>2025-08-10</strong>: Expanded domain for <code>as:sensitive<code> to include <code>Link</code>.</li>
-      </ul>
-    </section>
-  </body>
+  </section>
+  <section id="conformance">
+    <p>
+      This is required for specifications that contain normative material.
+    </p>
+  </section>
+  <section class="appendix informative" id="changelog">
+    <h2>Changelog</h2>
+    <ul>
+      <li><strong>2026-08-19</strong>: Update to 1.0.1 version of context document that drops the types for boolean terms for compatibility with existing implementations.</li>
+      <li><strong>2025-08-10</strong>: Expanded domain for <code>as:sensitive</code> to include <code>Link</code>.</li>
+    </ul>
+  </section>
+</body>
 </html>
