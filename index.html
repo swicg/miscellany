@@ -17,6 +17,8 @@
     };
   </script>
   <style>
+    table th,
+    table th *,
     table td,
     table td * {
       vertical-align: top;
@@ -84,8 +86,7 @@
     <p>To use these terms, documents should include this context URL in the
       <code>@context</code> property of the JSON-LD document.
     </p>
-    <aside class="example">
-      <p>Example usage of the context.</p>
+    <aside class="example" title="Example usage of the context">
       <pre class="json">
           {
             &quot;@context&quot;: [
@@ -118,20 +119,23 @@
       </p>
 
       <table>
+        <caption>Version-stamped context URLs</caption>
+        <thead>
+          <tr>
+            <th scope="col">Version</th>
+            <th scope="col">URL</th>
+            <th scope="col">Notes</th>
+          </tr>
+        </thead>
         <tbody>
           <tr>
-            <th>Version</th>
-            <th>URL</th>
-            <th>Notes</th>
-          </tr>
-          <tr>
-            <td>(latest)</td>
+            <th scope="row">(latest)</th>
             <td><a href="https://purl.archive.org/miscellany">https://purl.archive.org/miscellany</a>
             </td>
             <td>The latest version of the context is always available at this URL. Most implementers can use this URL.</td>
           </tr>
           <tr>
-            <td>1.0.1</td>
+            <th scope="row">1.0.1</th>
             <td><a
                 href="https://purl.archive.org/miscellany/1.0.1">https://purl.archive.org/miscellany/1.0.1</a>
             </td>
@@ -141,7 +145,7 @@
             </td>
           </tr>
           <tr>
-            <td>1.0.x</td>
+            <th scope="row">1.0.x</th>
             <td><a
                 href="https://purl.archive.org/miscellany/1.0">https://purl.archive.org/miscellany/1.0</a>
             </td>
@@ -152,7 +156,7 @@
             </td>
           </tr>
           <tr>
-            <td>1.x.x</td>
+            <th scope="row">1.x.x</th>
             <td><a
                 href="https://purl.archive.org/miscellany/1">https://purl.archive.org/miscellany/1</a>
             </td>
@@ -167,8 +171,7 @@
 
       <p>Using the version-stamped context URLs is similar to the unstamped URL.</p>
 
-      <aside class="example">
-        <p>Example usage of a version-stamped context URL.</p>
+      <aside class="example" title="Example usage of a version-stamped context URL">
         <pre class="json">
                   {
                     &quot;@context&quot;: [
@@ -194,11 +197,12 @@
     <section id="Hashtag" data-dfn-for="Hashtag">
       <h3>Hashtag</h3>
       <table>
+        <caption>Hashtag definition</caption>
         <tbody>
           <tr>
-            <td style="width: 10%;">
+            <th scope="row" style="width: 10%;">
               URI:
-            </td>
+            </th>
             <td>
               <code>https://www.w3.org/ns/activitystreams#Hashtag</code><br>
               <code>as:Hashtag</code><br>
@@ -206,9 +210,9 @@
             </td>
           </tr>
           <tr>
-            <td>
+            <th scope="row">
               Notes:
-            </td>
+            </th>
             <td>
               <p>
                 A metadata tag used for casual categorization of content. Often, a hashtag is presented inline in
@@ -231,17 +235,16 @@
             </td>
           </tr>
           <tr>
-            <td>Extends:</td>
+            <th scope="row">Extends:</th>
             <td><code><a href="https://www.w3.org/TR/activitystreams-core/#link">Link</a></code></td>
           </tr>
           <tr>
-            <td>Properties:</td>
+            <th scope="row">Properties:</th>
             <td>Inherits all properties from <code><a href="https://www.w3.org/TR/activitystreams-core/#link">Link</a></code>.</td>
           </tr>
         </tbody>
       </table>
-      <aside class="example">
-        <p>A <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-note">Note</a> with a <code>Hashtag</code> in its <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tag">tag</a> array.</p>
+      <aside class="example" title="A Note with a Hashtag in its tag array">
         <pre class="json">
           {
             &quot;@context&quot;: [
@@ -263,9 +266,7 @@
           }
           </pre>
       </aside>
-      <aside class="example">
-        <p>A collection of <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-image">Image</a> objects with <code>Hashtag</code> objects in their <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tag">tag</a> array. The images are grouped together
-        because the hashtag <code>name</code> values are equivalent.</p>
+      <aside class="example" title="A collection of Image objects with Hashtag objects in their tag array. The images are grouped together because the hashtag name values are equivalent">
         <pre class="json">
           {
             &quot;@context&quot;: [
@@ -321,11 +322,12 @@
     <section id="manuallyApprovesFollowers" data-dfn-for="manuallyApprovesFollowers">
       <h3>manuallyApprovesFollowers</h3>
       <table>
+        <caption>manuallyApprovesFollowers definition</caption>
         <tbody>
           <tr>
-            <td style="width: 10%;">
+            <th scope="row" style="width: 10%;">
               URI:
-            </td>
+            </th>
             <td>
               <code>https://www.w3.org/ns/activitystreams#manuallyApprovesFollowers</code><br>
               <code>as:manuallyApprovesFollowers</code><br>
@@ -333,29 +335,28 @@
             </td>
           </tr>
           <tr>
-            <td>
+            <th scope="row">
               Notes:
-            </td>
+            </th>
             <td>
               When *true*, conveys that for this actor, follow requests are not usually automatically approved, but instead are examined by a person who may accept or reject the request, at some time in the future.  Setting of FALSE conveys no information and may be ignored. This information is typically used to affect display of accounts, such as showing an account as private or locked.
             </td>
           </tr>
           <tr>
-            <td>Domain:</td>
+            <th scope="row">Domain:</th>
             <td><code>Object</code> (an ActivityPub <a href="https://www.w3.org/TR/activitypub/#actors">Actor</a>)</td>
           </tr>
           <tr>
-            <td>Range:</td>
+            <th scope="row">Range:</th>
             <td><code>Boolean</code></td>
           </tr>
           <tr>
-            <td>Functional:</td>
+            <th scope="row">Functional:</th>
             <td><code>true</code></td>
           </tr>
         </tbody>
       </table>
-      <aside class="example">
-        <p>An ActivityPub actor with the <code>manuallyApprovesFollowers</code> flag set to true.</p>
+      <aside class="example" title="An ActivityPub actor with the manuallyApprovesFollowers flag set to true">
         <pre class="json">
           {
             &quot;@context&quot;: [
@@ -378,11 +379,12 @@
     <section id="movedTo" data-dfn-for="movedTo">
       <h3>movedTo</h3>
       <table>
+        <caption>movedTo definition</caption>
         <tbody>
           <tr>
-            <td style="width: 10%;">
+            <th scope="row" style="width: 10%;">
               URI:
-            </td>
+            </th>
             <td>
               <code>https://www.w3.org/ns/activitystreams#movedTo</code><br>
               <code>as:movedTo</code><br>
@@ -390,29 +392,28 @@
             </td>
           </tr>
           <tr>
-            <td>
+            <th scope="row">
               Notes:
-            </td>
+            </th>
             <td>
               Signifies that an actor has been moved to a different ID. Used in Mastodon-style data portability with the <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-move">Move</a> activity; see <a href="https://swicg.github.io/activitypub-data-portability/#move-action">ActivityPub Data Portability/Move Action</a> for more details.
             </td>
           </tr>
           <tr>
-            <td>Domain:</td>
+            <th scope="row">Domain:</th>
             <td><code>Object</code> (an ActivityPub <a href="https://www.w3.org/TR/activitypub/#actors">Actor</a>)</td>
           </tr>
           <tr>
-            <td>Range:</td>
+            <th scope="row">Range:</th>
             <td><code>Object</code> (an ActivityPub <a href="https://www.w3.org/TR/activitypub/#actors">Actor</a>)</td>
           </tr>
           <tr>
-            <td>Functional:</td>
+            <th scope="row">Functional:</th>
             <td><code>true</code></td>
           </tr>
         </tbody>
       </table>
-      <aside class="example">
-        <p>An ActivityPub actor with the <code>movedTo</code> property set to a new ID.</p>
+      <aside class="example" title="An ActivityPub actor with the movedTo property set to a new ID">
         <pre class="json">
           {
             &quot;@context&quot;: [
@@ -435,11 +436,12 @@
     <section id="sensitive" data-dfn-for="sensitive">
       <h3>sensitive</h3>
       <table>
+        <caption>sensitive definition</caption>
         <tbody>
           <tr>
-            <td style="width: 10%;">
+            <th scope="row" style="width: 10%;">
               URI:
-            </td>
+            </th>
             <td>
               <code>https://www.w3.org/ns/activitystreams#sensitive</code><br>
               <code>as:sensitive</code><br>
@@ -447,31 +449,30 @@
             </td>
           </tr>
           <tr>
-            <td>
+            <th scope="row">
               Notes:
-            </td>
+            </th>
             <td>
               The <code>sensitive</code> property (a boolean) on an object indicates that some users may wish to apply discretion about viewing its content, whether due to nudity, violence, or any other likely aspects that viewers may be sensitive to.  This is comparable to what is popularly called &quot;NSFW&quot; (Not Safe For Work) or &quot;trigger warning&quot; in some systems.  Implementations may choose to hide content flagged with this property by default, exposed at user discretion. Original discussion in ActivityPub issue #<a href="https://github.com/w3c/activitypub/issues/231">231</a>.
             </td>
           </tr>
           <tr>
-            <td>Domain:</td>
+            <th scope="row">Domain:</th>
             <td>
               <code>Object</code> | <code>Link</code>
             </td>
           </tr>
           <tr>
-            <td>Range:</td>
+            <th scope="row">Range:</th>
             <td><code>Boolean</code></td>
           </tr>
           <tr>
-            <td>Functional:</td>
+            <th scope="row">Functional:</th>
             <td><code>true</code></td>
           </tr>
         </tbody>
       </table>
-      <aside class="example">
-        <p>An ActivityPub <code>Note</code> with the <code>sensitive</code> property set to true.</p>
+      <aside class="example" title="An ActivityPub Note with the sensitive property set to true">
         <pre class="json">
           {
             &quot;@context&quot;: [
