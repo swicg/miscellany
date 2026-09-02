@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
@@ -46,8 +46,8 @@
   <section class="informative">
     <h2>Introduction</h2>
     <p>
-      The first software packages that implemented the [[ActivityPub]]
-      federation protocol began to appear in 2018. <a href="https://joinmastodon.org/">Mastodon</a>, a federated
+      Production software packages that implemented the [[ActivityPub]]
+      federation protocol appeared in 2018. <a href="https://joinmastodon.org/">Mastodon</a>, a federated
       microblogging service, had previously implemented the <a href="https://en.wikipedia.org/wiki/OStatus">OStatus</a>
       protocol. It was ported over to using ActivityPub.
     </p>
@@ -201,7 +201,7 @@
     <h2>Types</h2>
     <p>This extension includes one object type, <a href="#Hashtag">Hashtag</a>.</p>
     <section id="Hashtag" data-dfn-for="Hashtag">
-      <h3>Hashtag</h3>
+      <h3><dfn class="export">Hashtag</dfn></h3>
       <table>
         <tbody>
           <tr>
@@ -325,7 +325,7 @@
     <h2>Properties</h2>
     <p>This extension includes three properties: <a href="#manuallyApprovesFollowers">manuallyApprovesFollowers</a>, <a href="#movedTo">movedTo</a>, and <a href="#sensitive">sensitive</a>.</p>
     <section id="manuallyApprovesFollowers" data-dfn-for="manuallyApprovesFollowers">
-      <h3>manuallyApprovesFollowers</h3>
+      <h3><dfn class="export">manuallyApprovesFollowers</dfn></h3>
       <table>
         <tbody>
           <tr>
@@ -381,7 +381,7 @@
       </aside>
     </section>
     <section id="movedTo" data-dfn-for="movedTo">
-      <h3>movedTo</h3>
+      <h3><dfn class="export">movedTo</dfn></h3>
       <table>
         <tbody>
           <tr>
@@ -437,7 +437,7 @@
       </aside>
     </section>
     <section id="sensitive" data-dfn-for="sensitive">
-      <h3>sensitive</h3>
+      <h3><dfn class="export">sensitive</dfn></h3>
       <table>
         <tbody>
           <tr>
@@ -455,7 +455,7 @@
               Notes:
             </th>
             <td>
-              The <code>sensitive</code> property (a boolean) on an object indicates that some users might wish to apply discretion about viewing its content, whether due to nudity, violence, or any other likely aspects that viewers might be sensitive to.  This is comparable to what is popularly called &quot;NSFW&quot; (Not Safe For Work) or &quot;trigger warning&quot; in some systems.  Implementations MAY hide content flagged with this property by default, exposed at user discretion. Original discussion in ActivityPub issue #<a href="https://github.com/w3c/activitypub/issues/231">231</a>.
+              The <code>sensitive</code> property (a boolean) on an object or link indicates that some users might wish to apply discretion about viewing its content, whether due to nudity, violence, or any other likely aspects that viewers might be sensitive to.  This is comparable to what is popularly called &quot;NSFW&quot; (Not Safe For Work) or &quot;trigger warning&quot; in some systems.  Implementations MAY hide content flagged with this property by default, exposed at user discretion. Original discussion in ActivityPub issue #<a href="https://github.com/w3c/activitypub/issues/231">231</a>.
             </td>
           </tr>
           <tr>
