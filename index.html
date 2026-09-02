@@ -82,7 +82,7 @@
       context document is available at <a
         href="https://purl.archive.org/miscellany">https://purl.archive.org/miscellany</a>.
     </p>
-    <p>To use these terms, documents should include this context URL in the
+    <p>To use these terms, documents SHOULD include this context URL in the
       <code>@context</code> property of the JSON-LD document.
     </p>
     <aside class="example" title="Example usage of the context">
@@ -138,7 +138,7 @@
             <td><a
                 href="https://purl.archive.org/miscellany/1.0.1">https://purl.archive.org/miscellany/1.0.1</a>
             </td>
-            <td>The exact version of the context document. The resource at this URL should be immutable. This URL is useful
+            <td>The exact version of the context document. The resource at this URL is immutable. This URL is useful
               for implementers that
               need an exact, byte-wise replicable version of the document.
             </td>
@@ -338,7 +338,7 @@
               Notes:
             </th>
             <td>
-              When *true*, conveys that for this actor, follow requests are not usually automatically approved, but instead are examined by a person who may accept or reject the request, at some time in the future.  Setting of FALSE conveys no information and may be ignored. This information is typically used to affect display of accounts, such as showing an account as private or locked.
+              When *true*, conveys that for this actor, follow requests are not usually automatically approved, but instead are examined by a person who might accept or reject the request, at some time in the future.  Processors MAY ignore a value of <code>false</code>. This information is typically used to affect display of accounts, such as showing an account as private or locked.
             </td>
           </tr>
           <tr>
@@ -452,7 +452,7 @@
               Notes:
             </th>
             <td>
-              The <code>sensitive</code> property (a boolean) on an object indicates that some users may wish to apply discretion about viewing its content, whether due to nudity, violence, or any other likely aspects that viewers may be sensitive to.  This is comparable to what is popularly called &quot;NSFW&quot; (Not Safe For Work) or &quot;trigger warning&quot; in some systems.  Implementations may choose to hide content flagged with this property by default, exposed at user discretion. Original discussion in ActivityPub issue #<a href="https://github.com/w3c/activitypub/issues/231">231</a>.
+              The <code>sensitive</code> property (a boolean) on an object indicates that some users might wish to apply discretion about viewing its content, whether due to nudity, violence, or any other likely aspects that viewers might be sensitive to.  This is comparable to what is popularly called &quot;NSFW&quot; (Not Safe For Work) or &quot;trigger warning&quot; in some systems.  Implementations MAY hide content flagged with this property by default, exposed at user discretion. Original discussion in ActivityPub issue #<a href="https://github.com/w3c/activitypub/issues/231">231</a>.
             </td>
           </tr>
           <tr>
